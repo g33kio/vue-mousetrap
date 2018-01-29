@@ -1,6 +1,6 @@
 {
   "name": "vue-mousetrap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "just a basic wrapper to add mousetrap to vue instance",
   "main": "index.js",
   "scripts": {
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/g33kco/vue-mousetrap/issues"
   },
-  "homepage": "https://github.com/g33kco/vue-mousetrap#readme"
+  "homepage": "https://github.com/g33kco/vue-mousetrap#readme",
+  "dependencies": {
+    "mousetrap": "^1.6.1"
+  }
 }
