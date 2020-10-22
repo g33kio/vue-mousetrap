@@ -1,6 +1,6 @@
 {
   "name": "vue-mousetrap",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "just a basic wrapper to add mousetrap to vue instance",
   "main": "index.js",
   "scripts": {
