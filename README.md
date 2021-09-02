@@ -3,6 +3,68 @@
 
 ## Installing
 Install using NPM
-```
+```shell
 npm install vue-mousetrap --save
+```
+Install using Yarn
+```shell
+yarn add vue-mousetrap
+```
+
+## Usage
+The loading of the plugin is different between Vue 2 and Vue 3 in the **main.js** file. Once loaded access mousetrap in components is the same for both versions.
+
+### Vue 2
+```js
+import Vue from 'vue'
+import VueMousetrapPlugin from 'vue-mousetrap/vue2'
+Vue.use(VueMousetrapPlugin)
+```
+
+### Vue 3
+```js
+import { createApp } from 'vue'
+import App from './App.vue'
+import VueMousetrapPlugin from 'vue-mousetrap'
+
+const app = createApp(App)
+
+app.use(VueMousetrapPlugin)
+
+app.mount('#app')
+```
+
+### Vue 2 and Vue 3 Access in Components
+
+```js
+<script>
+  export default {
+    name: 'mousetrap-demo',
+    mounted() {
+      // single keys
+      this.$mousetrap.bind('4', this.logIt);
+      this.$mousetrap.bind("?", this.logIt);
+      this.$mousetrap.bind('esc', this.logIt, 'keyup');
+
+      // combinations
+      this.$mousetrap.bind('command+shift+k', this.logIt);
+
+      // map multiple combinations to the same callback
+      this.$mousetrap.bind(['command+k', 'ctrl+k'], this.logIt);
+
+      // gmail style sequences
+      this.$mousetrap.bind('g i', this.logIt);
+      this.$mousetrap.bind('* a', this.logIt);
+
+      // konami code!
+      this.$mousetrap.bind('up up down down left right left right b a enter', this.logIt);
+    },
+    methods: {
+      logIt(e) {
+        console.log(e);
+        return false;
+      }
+    }
+  };
+</script>
 ```
