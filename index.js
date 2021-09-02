@@ -1,5 +1,9 @@
-module.exports = {
-  install: function (Vue) {
-    Vue.prototype.$mousetrap = require('mousetrap')
-  }
+import mousetrap from 'mousetrap'
+
+const VueMousetrapPlugin = {
+    install(app) {
+        app.config.globalProperties.$mousetrap = mousetrap
+    },
 };
+
+export default VueMousetrapPlugin;
