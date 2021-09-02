@@ -3,21 +3,39 @@
 
 ## Installing
 Install using NPM
-```
+```shell
 npm install vue-mousetrap --save
+```
+Install using Yarn
+```shell
+yarn add vue-mousetrap
 ```
 
 ## Usage
-This is a basic plugin that adds mousetrap to the Vue instance so you can access it within components a little easier.
+The loading of the plugin is different between Vue 2 and Vue 3 in the **main.js** file. Once loaded access mousetrap in components is the same for both versions.
 
-**main.js**
+### Vue 2
 ```js
 import Vue from 'vue'
-import VueMousetrap from 'vue-mousetrap'
-Vue.use(VueMousetrap)
+import VueMousetrapPlugin from 'vue-mousetrap/vue2'
+Vue.use(VueMousetrapPlugin)
 ```
 
-**component**
+### Vue 3
+```js
+import { createApp } from 'vue'
+import App from './App.vue'
+import VueMousetrapPlugin from 'vue-mousetrap'
+
+const app = createApp(App)
+
+app.use(VueMousetrapPlugin)
+
+app.mount('#app')
+```
+
+### Vue 2 and Vue 3 Access in Components
+
 ```js
 <script>
   export default {
