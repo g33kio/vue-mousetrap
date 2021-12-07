@@ -22,6 +22,8 @@ Vue.use(VueMousetrapPlugin)
 ```
 
 ### Vue 3
+
+#### Usage with options API
 ```js
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -34,7 +36,16 @@ app.use(VueMousetrapPlugin)
 app.mount('#app')
 ```
 
+#### Usage with composition API
+
+```js
+app.use(VueMousetrapPlugin).provide('mousetrap', app.config.globalProperties.$mousetrap).mount('#app')
+```
+
 ### Vue 2 and Vue 3 Access in Components
+
+
+#### Usage with options API
 
 ```js
 <script>
@@ -67,4 +78,20 @@ app.mount('#app')
     }
   };
 </script>
+```
+
+#### Usage with composition API
+
+```js
+setup() {
+    const mousetrap = inject('mousetrap')
+
+    onMounted(() => {
+        mousetrap.bind(['command+k', 'ctrl+k'], () => {
+            console.log("Yikes")
+        });
+    })
+
+    return {};
+},
 ```
