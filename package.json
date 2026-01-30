@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/g33kco/vue-mousetrap#readme",
   "dependencies": {
-    "eslint": "^7.32.0",
+    "eslint": "^9.26.0",
     "mousetrap": "^1.6.5"
   }
 }
